@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block everypage %} <h3><b> Home</b></h3> {% endblock everypage %}
+ 
+{% block content %} 
+    <hr>
+
+    <div class="image_container">  
+      <p style="justify-content: center;">
+        <i class="fas fa-sharp fa-solid fa-books"> </i>
+      </p>     
+    </div>
+
+    <hr>
+    <section class="about">
+      <div style="border-bottom:10px rgb(215, 83, 83) solid;"> <h1>About Us</h1> </div>
+      <br>
+        There are many variations of passages of Lorem Ipsum available, 
+        but the majority have suffered alteration in some form, 
+        by injected humour, or randomised words which don't look even slightly believable. 
+        If you are going to use a passage of Lorem Ipsum,
+        you need to be sure there isn't anything embarrassing hidden in the middle of text. 
+        All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as 
+        necessary, making this the first true generator on the Internet. It uses a dictionary
+          of over 200 Latin words, combined with a handful of model sentence structures, 
+          to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore
+          always free from repetition, injected humour, or non-characteristic words etc.
+    </section>
+    
+
+
+</div>
+ 
+<style>
+  .image_container{
+    background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url('{% static 'library-home.jpg' %}'); 
+    background-position:center;
+    background-repeat:no-repeat;
+    background-size:cover;  
+    width:100%; height:500px;
+    animation: animate 3s linear infinite;
+}
+    
+  .image_container img{
+    width:100%; height:500px;
+  }  
+
+@keyframes animate{
+      0%{ filter: hue-rotate(0deg);  }
+              
+      100%{ filter: hue-rotate(360deg) }
+
+      }  
+
+</style> 
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+  
+{% endblock content %}
+   

@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block everypage %} <h3><b> #Librarian logged in</b></h3> {% endblock everypage %}
+
+{% block content %}
+<br>
+<p style="display: flex; flex-direction: row;"> <h3> Books</h3> </p>
+<hr>
+
+{% for message in messages %}
+    <div class="alert alert-info alert-dismissible fade show" role="alert">
+      <strong> {{ message }} </strong> 
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  {% endfor %}
+
+<div class="block-around">
+	<div class="table-responsive px-1">
+		<table class="table table-hover projects-table" cellspacing="0" width="100%">
+			<thead>
+				<tr>
+					<th scope="col">#</th>
+					<th scope="col">Book-Title</th>
+					<th scope="col">Author</th>
+					<th scope="col">Status</th>
+					<th scope="col">Discharge</th>
+				</tr>
+			</thead>
+    
+			<tbody>
+				{% for x in allbooks %}
+					<tr>
+						<th scope="row">{{ forloop.counter }}</th>						
+						<td>{{ x.title }}</td>
+						<td>{{ x.author }}</td>
+
+            <td><a href=" " class="btn btn-primary">Update</a></td>
+			<td> <a href=" {% url 'bookdelete' pk=x.id %} " class="btn btn-danger">Remove</a> </td>
+          </tr>
+
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+	</div>
+
+{% endblock %}
+
+

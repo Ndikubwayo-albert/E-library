@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<br>
+
+{% for message in messages %}
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <strong> {{ message }} </strong> 
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  {% endfor %}
+
+	<div class="container h-300">
+		<div class="d-flex justify-content-center h-300">
+			<div class="user_card">
+
+				<div class="d-flex justify-content-center">
+					<h4 id="form-title">Sign in</h4>
+				</div>
+
+				<div class="d-flex justify-content-center mt-4 ">
+
+					<form method="POST" action="">
+						{% csrf_token %}
+						<div class="input-group mb-3">
+							<div class="input-group-append">
+								<span class="input-group-text"><i class="fas fa-user"></i></span>
+							</div>
+							<input type="text" name="username" placeholder="Username or Email..." class="form-control" required>
+						</div>
+						<div class="input-group mb-2">
+							<div class="input-group-append">
+								<span class="input-group-text"><i class="fas fa-key"></i></span>
+							</div>
+								<input type="password" name="password" placeholder="Password..." class="form-control" required >
+						</div>
+
+					
+						<div class=" justify-content-center login-container form-control" style=" ">  
+				 				<input class="btn btn-danger btn-block form-control " type="submit" value="Login" > <br>
+
+				   			</div>
+							
+							<div class=" justify-content-center p-text" style=" padding: 10px;">   
+							New at E-library? <a href="/signup" style="">Create Account </a>
+							</div>
+
+					</form>
+
+				</div>
+		
+
+			</div>
+		</div>
+	</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+
+
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<br>
+<br>
+<h3> Books </h3>
+<hr>
+
+<div class="container pt-5">
+    <form method="post">
+        {% csrf_token %}
+        <p class="h2">Are u sure you want remove the book<span class="bold"><u><b>{{ allbooks.title}}</b></u></span>?<span class="text-danger"> Elements associated to this user won't be deleted.</span></p>
+        <button type="submit" class="btn btn-danger">Am sure!</button>
+        <a type="button" class="btn btn-primary" id="back" href="{% url 'allbooks' %}">Cancel</a>
+    </form>
+</div>
+
+{% endblock %}
+
+

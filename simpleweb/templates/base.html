@@ -1,0 +1,196 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<title>| E-Library</title>
+
+<style>
+
+  .container{
+    /* margin-top: 50px;
+    margin-left: 50px; */
+    padding:30px 0px 40px 50px;
+    /* border:1px solid green; */
+
+
+  }
+
+  .container .para1{
+    color: brown;
+    font-size: 20px;
+  }
+  .linkbar{
+    padding:0px;
+    color:white;
+
+  }
+  .linkbar a{
+    text-decoration: none;
+    font-size: 20px;
+    
+  }
+  
+  table{
+    border:1px solid green;
+    padding:20px;
+    font-size: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
+  }
+
+  table tr td{
+    padding: 10px;
+    border:1px solid green;
+    
+  }
+  table tr th{
+    padding: 10px;
+    border:1px solid green;
+    background-color: beige;
+    border-radius: 20px 20px 20px 20px;
+  
+  }
+  .btnlogin{
+    display: flex;
+    flex-direction: row;    
+    float: right;
+    margin-top: -40px;
+    margin-right: -100px;
+    padding-left:30px;
+    
+  }
+  .btnlogin button a{
+    color:black;
+    text-decoration: none;
+  }
+  
+  .btnlogin button a:hover{
+    color:white;
+  }
+
+  
+ 
+ 
+  .book-img{
+    background-image:url('');
+    background-position:center;
+    background-size:cover;
+    background-repeat:no-repeat;
+    margin-bottom:20px;
+
+  }
+
+  .cardcontent p{
+    display: flex;
+    padding-left:30px;
+    /* justify-content: center; */
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 13px;
+    
+  }
+
+  #author{
+    color:brown;
+
+  }
+
+  .footer{
+    width: 100%;
+    height: 300px;
+    padding: 20px;
+    background-color: #95A5A6 ;
+}
+
+.subfooter{
+    width: 100%;
+    height: 50px;
+    padding: 10px 0px 0px 100px;
+    background-color: #839192 ;
+    color: black;
+    display: flex;
+    flex-direction: row;
+    /* align-items: center; */
+    justify-content: center;
+    
+}
+
+
+</style>
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %} ">
+
+<link rel="icon" type="image/x-icon" href="{% static 'solvit logo.jpg' %}">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+<!-- for signin form -->
+<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+<link href='https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css' rel='stylesheet'/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+
+</head>
+
+<body>
+
+ 
+<div class="container">
+  <h1>Welcome to E-Library.</h1> 
+
+  {% if user.is_authenticated %}
+
+  <span class="btnlogin">
+    <p  style="margin-right: 20px;">Hey ({{ user.first_name }})</p>
+    <button type="button" class="btn btn-dark btn-md"> <a href="/signout" style="color:white;">Logout</a> </button>
+  </span>
+{% else %}
+<span class="btnlogin">
+  <button type="button" class="btn btn-outline-dark btn-md" style="margin-right: 30px;"><a href="/signin">Sign In</a> </button>
+  <button type="button" class="btn btn-dark btn-md"> <a href="/signup" style="color:white;">Register</a> </button>
+</span>
+{% endif %}
+
+  <p class="para1">This is very amazing to visit.</p> <br>
+  
+
+<!-- nav bar -->
+  <div class="linkbar">
+    
+      <a href="/home"> <button type="button" class="btn btn-secondary"> Home </button> </a>
+      <a href="/register_book"> <button type="button" class="btn btn-secondary"> Add book </button> </a>
+      <a href="/books"> <button type="button" class="btn btn-secondary"> All books </button> </a>
+      <a href="/about"> <button type="button" class="btn btn-secondary"> About E-Library </button> </a>
+      <a href="/contact"> <button type="button" class="btn btn-secondary"> Contact </button> </a>
+      
+  </div>
+
+  
+<br> 
+<br>
+<div style="display: flex; flex-direction: row; "> 
+  <h3>E-library |&nbsp;</h3> {% block everypage %}  {% endblock everypage %} 
+</div>  
+
+  {% block content %}
+  {% endblock %}
+  
+</div>
+
+<div class="footer">
+  <img src="{% static 'solvit logo.jpg' %}" style="width: 80px; height: 70px; 
+  margin-left: 100px;">
+
+
+
+</div>
+
+<div class="subfooter">
+  <p>
+    <h4> Copyright (c) - 2023 </h4>
+  </p>
+</div>
+
+</body>
+</html>

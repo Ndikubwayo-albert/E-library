@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<br>
+    <hr>
+    {% for message in messages %}
+    <div class="alert alert-info alert-dismissible fade show" role="alert">
+      <strong> {{ message }} </strong> 
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  {% endfor %}
+    <span>    
+      <div style="background-image:url('{% static 'library.jpg' %}'); 
+      background-repeat:no-repeat;
+      background-position:center;
+      background-size:cover; 
+      width:100%; height:250px; ">
+        
+      <div class="" style="position: relative;
+       color:white; 
+       float: right;
+       padding-top:190px;
+       padding-right: 20px;
+       font-family:'Courier New', Courier, monospace;
+        font-size: 40px;
+        font-weight: bolder;">Contact Us/ </div>
+      
+      </div>
+      
+    </span>
+
+<br>
+<br> 
+<div style="border-bottom:5px rgb(215, 83, 83) solid;"> <h3>Send us a message</h3> </div>
+<hr>
+
+<section>
+	<div class="contact-us">
+        <div class="contact-form">
+
+        <form method="POST" action=" " enctype="multipart/form-data">
+            {%csrf_token%}
+
+            <table class="table"> 
+                {% for field in form %}
+
+                <tr>
+                    <th scope="row">{{field.label}} </th>
+                    <td>
+                        {{ field }}
+                        <br/><small class="text-secondary">{{field.help_text}} </small>
+                    </td>
+                </tr> 
+                {% endfor %}               
+            </table>
+
+            <button class="btn btn-danger form-control" type="submit">Send Message</button>
+        </form>
+		
+        </div>
+		
+	</div>
+</section>
+
+<style>
+	
+	
+	.contact-form textarea{
+		height: 100px;
+	}
+	.contact-form input, textarea{
+		padding: 10px;
+		width: 100%;
+	}
+	.main-info-text{
+			font-size: 25px;
+			font-weight: 10;
+		}
+	@media(min-width: 768px){
+		.contact-details{
+			padding-left: 10px;
+		}
+		.contact-form{
+			padding-right: 10px;
+		}
+	}
+	
+</style>
+
+{% endblock content %}
