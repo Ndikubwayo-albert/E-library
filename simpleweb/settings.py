@@ -25,8 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY','12345')
 
-# 'django-insecure-3s_zf-rnhy)8r)u_4tp&*qf2p!#ylr98e#a=)hw$d2@_k^59-b'
-
+# 'django-insecure-3s_zf-rnhy)8r)u_4tp&*qf2p!#ylr98e#a=)hw$d2@_k^59-
 # SECURITY WARNING: don't run with debug turned on in production!
 
 # DEBUG= True
@@ -94,15 +93,11 @@ CORS_ALLOW_ALL_ORIGINS= True
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = { 
-             'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-            'USER': '',
-            'PASSWORD': '',
-            'HOST': '',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
-            'PORT': '',  
-        }
+DATABASES ={
+    'default': dj_database_url.config(
+        conn_max_age=600,
+        conn_health_checks= True,
+    ),         
 }
 
 # 'default': {
