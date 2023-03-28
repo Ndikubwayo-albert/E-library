@@ -86,7 +86,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'solverslibrary.wsgi.application'
+WSGI_APPLICATION = 'simpleweb.wsgi.application'
 CORS_ALLOW_ALL_ORIGINS= True
 
 
