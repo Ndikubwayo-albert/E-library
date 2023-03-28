@@ -15,7 +15,9 @@ urlpatterns = [
     
     # for API authentication
     
-    path('api/', include(router.urls)),
+    path('register-api/', include(router.urls)),
+    
+    # path('Register/', include(router.urls)),
     # path('api/token/', TokenObtainPairView.as_view(), name="token_obtain_pair")
     
     # path('createuser/', views.SignupView.as_view(), name='createuser'),
