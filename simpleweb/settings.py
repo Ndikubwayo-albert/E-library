@@ -88,7 +88,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'simpleweb.wsgi.application'
-CORS_ALLOWED_ORIGINS= True
+CORS_ALLOW_ALL_ORIGINS= True
 
 
 # Database
