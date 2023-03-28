@@ -149,8 +149,8 @@ USE_TZ = True
     
 # Location of project wide static assets.
 
-STATIC_URL = 'static/'
-if not DEBUG:
+STATIC_URL = '/static/'
+if DEBUG: 
     # Tell Django to copy statics to the `staticfiles` directory
     # in your application directory on Render.
     STATIC_ROOT = os.path.join(BASE_DIR, 'simpleweb/staticfiles')
