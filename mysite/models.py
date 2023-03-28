@@ -15,20 +15,20 @@ class Book(models.Model):
     def __str__(self):
         return self.title +"     by   "+self.author
 
-class Author(models.Model):    
-    GENDER_CHOICE = [
-        ('male','MALE'),
-        ('female','FEMALE'),
-    ]
+# class Author(models.Model):    
+#     GENDER_CHOICE = [
+#         ('male','MALE'),
+#         ('female','FEMALE'),
+#     ]
     
-    id= models.AutoField(primary_key=True)    
-    firstname= models.CharField(max_length=500, unique=False, null=False)
-    lastname= models.CharField(max_length=500, unique=False, null=True)
-    sex= models.CharField(max_length=1500, choices= GENDER_CHOICE)
-    dateofbirth= models.DateField(auto_now=False)  
+#     id= models.AutoField(primary_key=True)    
+#     firstname= models.CharField(max_length=500, unique=False, null=False)
+#     lastname= models.CharField(max_length=500, unique=False, null=True)
+#     sex= models.CharField(max_length=1500, choices= GENDER_CHOICE)
+#     dateofbirth= models.DateField(auto_now=False)  
     
-    def __str__(self):
-        return self.firstname  
+#     def __str__(self):
+#         return self.firstname  
 
       
     

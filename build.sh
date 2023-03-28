@@ -1,4 +1,4 @@
-# for installing
+# for installing dependencies
 pip install -r requirements.txt
 
 
