@@ -25,7 +25,7 @@ class Author(models.Model):
     firstname= models.CharField(max_length=500, unique=False, null=False)
     lastname= models.CharField(max_length=500, unique=False, null=True)
     sex= models.CharField(max_length=1500, choices= GENDER_CHOICE)
-    dateofbirth= models.DateField()  
+    dateofbirth= models.DateField(auto_now=False)  
     
     def __str__(self):
         return self.firstname  
